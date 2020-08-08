@@ -1,0 +1,37 @@
+/*font-family: 'Manrope', sans-serif;*/
+*{
+  box-size: border-box;
+  margin: 0;
+  padding: 0;
+}
+  
+  body {
+    font-family: 'Manrope', sans-serif;
+    text-transform: uppercase;
+    color:black;
+    background-color: lightblue;
+    text-align: center;
+    }
+    section {
+  max-width: 600px;
+  margin: 0 auto;
+}
+li {
+  margin-bottom: 20px;
+  border: 1px solid grey;
+  padding: 20px;
+}
+.question {
+  display: block;
+  color: red;
+  font-style: bold;
+  font-size: 20px;
+  margin-bottom: 10px
+  
+
+
+  @media all and (min-width: 800px) {
+  section {
+    padding: 0 10%;
+    flex-direction:row;
+  }
