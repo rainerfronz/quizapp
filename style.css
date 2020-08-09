@@ -11,11 +11,15 @@
     color:black;
     background-color: lightblue;
     text-align: center;
-    wrapper: 50%;
+    wrapper: 600px;
     }
     section {
   max-width: 600px;
   margin: 0 auto;
+}
+header h1 {
+  font-size: 30px;
+  display: block;
 }
 li {
   margin-bottom: 20px;
