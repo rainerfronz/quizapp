@@ -1,31 +1,50 @@
 <!DOCTYPE html>
-<html = "en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <title>USA Quiz App</title>
-    <meta name="description" type="A quiz app about basic information about the United States of America">  <link
-    href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
-    rel="stylesheet"
-    type="text/css"
-  /><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500&display=swap" rel="stylesheet">
-    <link href="style.css" rel="stylesheet" type="text/css" />
-  </head>
-  <body>
-    <main>
-      <header>USA Quiz App</header>
-    <section id="landing">start</section>
-    <section id="questions">quiz page</section>
-    <ul>
-      <li>questions</li>
+<html="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>USA Quiz App</title>
+  <meta name="description" type="A quiz app about basic information about the United States of America">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet"
+    type="text/css" />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500&display=swap" rel="stylesheet">
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <main>
+
+    <section id="landing">
+      <header role="banner" class="header">
+        <h1>USA Quiz App</h1>
+        <img src="/Users/rainerfronz/projects/quizapp-master/images/eagleflag.jpegg" alt="Bald Eagle Flag flying">
+    </section>
+    <section id="questions">
+      <ul>
+        <li>Question:
+          <span>0</span>/10</li>
+        <li>Score:
+          <span>0</span>
+        </li>
       </ul>
-      <hr>
-    <section id="score">answer page</section>
+    </section>
+    </header>
+    <section id="startpage">
+      <h1>How Much Do You Know About The USA?</h1>
+      <img src="/Users/rainerfronz/projects/quizapp-master/images/billofrights.jpeg" alt="Bill of Rights">
+      <button>Start</button>
+    </section>
+
     <hr>
+    <section id="questionbox">questions
+    </section>
+    <section id="responses">answers</section>
 
     <section id="final">final</section>
     <script src="//code.jquery.com/jquery.min.js"></script>
 
     <script src="script.js"></script>
-  </body>
+</body>
+
 </html>
