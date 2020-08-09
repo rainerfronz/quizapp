@@ -2,7 +2,7 @@
 *{
   box-size: border-box;
   margin: 0;
-  padding: 0;
+  padding: 20px 20px;
 }
   
   body {
@@ -11,7 +11,11 @@
     color:black;
     background-color: lightblue;
     text-align: center;
-    wrapper: 600px;
+    }
+    img {
+      width: 50px;
+      height: 30px;
+  
     }
     section {
   max-width: 600px;
@@ -31,12 +35,9 @@ li {
   color: red;
   font-style: bold;
   font-size: 20px;
-  margin-bottom: 10px}
-  img {
-    width: 50px;
-    height: 30px;
-
-  }
+  margin-bottom: 10px
+}
+  
   
 
 
