@@ -11,6 +11,7 @@
     color:black;
     background-color: lightblue;
     text-align: center;
+    wrapper: 50%;
     }
     section {
   max-width: 600px;
@@ -30,7 +31,7 @@ li {
   img {
     width: 50px;
     height: 30px;
-    
+
   }
   
 
