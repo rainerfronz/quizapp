@@ -101,14 +101,14 @@ function answerSubmit() {
     const answer = e.target.answer.value;
     console.log("answer: " + answer);
     if (answer.value === STORE.questions[STORE.questions.correct]) {
-
+        //correctAnser();
       console.log('answer is correct');
       STORE.score += 1;
       console.log('score' + STORE.score);
       $('#score').text(STORE.score);
       // update score in DOM
     } else {
-      // handle wrong answer
+      // wrongAnswer()
     }
 
     STORE.questionNumber++;
