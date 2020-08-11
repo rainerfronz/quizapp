@@ -145,9 +145,9 @@ function wrongAnswer() {
 
 /*restart quiz button
 function restartQuiz() { 
-
-  <button type="submit" class="restartButton button">Restart</button>`
-  );
+  $('body').on('click','#restart', (event) => {
+    renderQUiz();
+  });
 }*/
 
 function handleQuiz() {
