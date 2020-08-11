@@ -128,7 +128,7 @@ function answerSubmit() {
 
 /*correct answer does this
 function correctAnswer() {
-  $('.response').html(
+  $('.answer').html(
     `<h3>Your answer is correct!</h3>
     <img src="images/fireworks.jpeg" alt="fireworks"  width="200px" height="300px">
       <p>USA A OK!</p>
