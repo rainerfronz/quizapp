@@ -124,15 +124,31 @@ function answerSubmit() {
   })
 }
 
-/*correct answer does this*/
-function correctAnswer() { }
+/*correct answer does this
+function correctAnswer() {
+  $('.response').html(
+    `<h3>Your answer is correct!</h3>
+    <img src="images/fireworks.jpeg" alt="fireworks"  width="200px" height="300px">
+      <p>USA A OK!</p>
+      <button type="button" class="nextButton button">Next</button>`
+  );}*/
 
-/*Wrong Answer does this */
-function wrongAnswer() { }
+/*Wrong Answer does this 
+function wrongAnswer() { 
+  $('#answer').html(<h3>Your Answer is Incorrect.</h3>
+    <img src="images/sadamerican.jpeg" alt="Sad USA competor" width="200px" height="300px">
+      <p>Back to School...</p>
+      <button type="button" class='nextButton button'>Next</button>
+    );*/
+}
 
 
-/*restart quiz button*/
-function restartQuiz() { }
+/*restart quiz button
+function restartQuiz() { 
+
+  <button type="submit" class="restartButton button">Restart</button>`
+  );
+}*/
 
 function handleQuiz() {
   renderQuiz()
