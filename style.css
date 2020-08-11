@@ -1,35 +1,70 @@
 /*font-family: 'Manrope', sans-serif;*/
-*{
+
+* {
   box-size: border-box;
   margin: 0;
   padding: 20px 20px;
 }
-  
-  body {
-    font-family: 'Manrope', sans-serif;
-    text-transform: uppercase;
-    color:black;
-    background-color: lightblue;
-    text-align: center;
-    }
-    img {
-      width: 50px;
-      height: 30px;
-  
-    }
-    section {
+
+body {
+  font-family: 'Manrope', sans-serif;
+  text-transform: uppercase;
+  color: black;
+  background-color: lightblue;
+  text-align: center;
+}
+
+img {
+  width: 50px;
+  height: 30px;
+}
+
+fieldset {
+  width: 80%;
+  padding: 20px;
+  margin: 0 auto;
+  background: white;
+  border: none;
+}
+
+section {
   max-width: 600px;
   margin: 0 auto;
 }
+
+.row {
+  max-width: 1000px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 0 auto;
+  border: solid
+}
+
+button {
+  margin-top: 10px;
+  height: auto;
+  font-size: 15px;
+  text-align: center;
+  color: red;
+  background: orange;
+  border: 0;
+  cursor: pointer;
+  margin-bottom: 0;
+  border-radius: 5px;
+  padding: 10px 20px;
+}
+
 header h1 {
   font-size: 30px;
   display: block;
 }
+
 li {
   margin-bottom: 20px;
   border: 1px solid grey;
   padding: 20px;
 }
+
 .question {
   display: block;
   color: red;
@@ -37,12 +72,22 @@ li {
   font-size: 20px;
   margin-bottom: 10px
 }
-  
-  
 
+.startQuiz, .quizBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  margin: auto;
+  padding: 2px;
+  border: 1px, black, solid;
+  background-color: white;
+}
 
-  @media all and (min-width: 800px) {
+@media all and (min-width: 800px) {
   section {
     padding: 0 10%;
-    flex-direction:row;
+    flex-direction: row;
   }
+}
