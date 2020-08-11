@@ -19,13 +19,7 @@ img {
   height: 30px;
 }
 
-fieldset {
-  width: 80%;
-  padding: 20px;
-  margin: 0 auto;
-  background: white;
-  border: none;
-}
+
 
 section {
   max-width: 600px;
@@ -66,6 +60,7 @@ li {
 }
 
 .question {
+  font-family: 'Manrope', sans-serif;;
   display: block;
   color: red;
   font-style: bold;
@@ -83,6 +78,9 @@ li {
   padding: 2px;
   border: 1px, black, solid;
   background-color: white;
+}
+.hidden {
+  visibility: hidden;
 }
 
 @media all and (min-width: 800px) {

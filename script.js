@@ -71,11 +71,12 @@ function renderQuiz() {
 function render() {
 
   let question = STORE.questions[STORE.questionNumber]
-  if (STORE.page == "question") {
+  if (STORE.page == "question") 
+  {
 
 
     $(`#content`).html(`
-   <form id="#js-title">
+   <form id="#js-title" class="quizBox">
    
     <legend>${question.title}</legend>
     <label>${question.answers[0]}</label>
@@ -101,20 +102,21 @@ function answerSubmit() {
     const answer = e.target.answer.value;
     console.log("answer: " + answer);
     if (answer.value === STORE.questions[STORE.questions.correct]) {
-        //correctAnser();
+      //correctAnser();
       console.log('answer is correct');
       STORE.score += 1;
       console.log('score' + STORE.score);
-      $('#score').text(STORE.score);
+      $('#score').text("Score: " + STORE.score);
       // update score in DOM
     } else {
+      
       // wrongAnswer()
     }
 
-    STORE.questionNumber++;
-    //$('#questionsCount').text(STORE.questionNumber);{
+    /*STORE.questionNumber++;
+    $(`#questionsCount`).text(STORE.questionNumber + '/10');{
 
-    //}
+    }*/
 
     console.log("question: " + STORE.questionNumber);
     //next button
@@ -140,6 +142,35 @@ function wrongAnswer() {
       <p>Back to School...</p>
       <button type="button" class='nextButton button'>Next</button>
     );*/
+/* function results(){
+  $('.final').show();
+
+  const great = [
+    'Proud American!',
+    "some images"
+    'No sleeping in Government Class for you!'
+  ];
+
+  const good = [
+    'Good Job',
+    "maybe an images"
+    'Feel good about your Red White and Blue'
+  ];
+
+  const bad = [
+    'Time to get the History Channel and CSPAN',
+    
+    'Are you a internet bot?'
+  ];
+
+  if (score >= 8) {
+    array = great;
+  } else if (score < 8 && score >= 5) {
+    array = good;
+  } else {
+    array = bad;
+  }*/
+
 }
 
 
