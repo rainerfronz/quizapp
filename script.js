@@ -13,47 +13,47 @@ const STORE = {
     {
       title: 'What year was the Constitution signed?',
       answers: ['1984', '1776', '2001', '1819'],
-      correct: '1776'
+      correct: 1
     },
     {
       title: 'Which president was famous for Fireside Chats, the New Deal and ending WWII?',
       answers: ['Franklin Roosevelt', 'William Taft', 'Harry Truman', 'Jimmy Carter'],
-      correct: 'Franklin Roosevelt'
+      correct: 0
     },
     {
       title: 'Which Direction is Detroit, MI from Windsor, ONT Canada?',
       answers: ['South', 'West', 'East', 'North'],
-      correct: 'North'
+      correct: 3
     },
     {
       title: 'Which leader passed the Civil Righs Act?',
       answers: ['Martin Luther', 'Martin Luther King Jr.', 'Lyndon B Johnson', 'Donald Trump'],
-      correct: 'Lyndon B Johnson'
+      correct: 3
     },
     {
       title: 'Who is the current Vice President?',
       answers: ['Dick Cheney', 'William Barr', 'Mike Pence', 'Jared Kushner'],
-      correct: 'Mike Pence'
+      correct: 2
     },
     {
       title: 'When was the Bill of Rights signed?',
       answers: ['1976', '1791', '1689', '2001'],
-      correct: '1791'
+      correct: 1
     },
     {
       title: 'Which Amendment expaned voter rights?',
       answers: ['10', '24', '5', '15'],
-      correct: '15'
+      correct: 3
     },
     {
       title: 'How many Moutain Ranges are in USA?',
       answers: ['5', '3', '2', '1'],
-      correct: '3'
+      correct: 1
     },
     {
       title: 'What determines election day?',
       answers: ['straw poll', 'Voted on by Senate', 'Tuesday next after first Monday in November', 'Primary Vote'],
-      correct: 'Tuesday next after first Monday'
+      correct: 2
     },
   ]
 }
@@ -63,7 +63,7 @@ function renderQuiz() {
   $('#start').on('click', function (event) {
     STORE.page = "question"
     render();
-    console.log('click')
+
   });
 }
 
@@ -71,10 +71,7 @@ function renderQuiz() {
 function render() {
 
   let question = STORE.questions[STORE.questionNumber]
-  if (STORE.page == "question") 
-  {
-
-
+  if (STORE.page == "question") {
     $(`#content`).html(`
    <form id="#js-title" class="quizBox">
    
@@ -90,8 +87,7 @@ function render() {
     <section class="row">
       <button type = "submit" id="answer">Submit</button>
     </section>
-  </form>
-  `)
+  </form>`)
   }
 
 }
@@ -101,88 +97,22 @@ function answerSubmit() {
 
     const answer = e.target.answer.value;
     console.log("answer: " + answer);
-    if (answer.value === STORE.questions[STORE.questions.correct]) {
+    if (answer === STORE.questions[STORE.questions.correct]) {
       //correctAnser();
-      console.log('answer is correct');
       STORE.score += 1;
-      console.log('score' + STORE.score);
-      $('#score').text("Score: " + STORE.score);
+
+      $('#score').text(STORE.score);
       // update score in DOM
-    } else {
-      
-      // wrongAnswer()
     }
 
-    /*STORE.questionNumber++;
-    $(`#questionsCount`).text(STORE.questionNumber + '/10');{
-
-    }*/
-
-    console.log("question: " + STORE.questionNumber);
-    //next button
+    STORE.questionNumber++;
+    $('#guestionCount').text(STORE.questionNumber)
+    console.log('question: ' + STORE.questionNumber);
     render();
-
-
   })
-}
-
-/*correct answer does this
-function correctAnswer() {
-  $('.answer').html(
-    `<h3>Your answer is correct!</h3>
-    <img src="images/fireworks.jpeg" alt="fireworks"  width="200px" height="300px">
-      <p>USA A OK!</p>
-      <button type="button" class="nextButton button">Next</button>`
-  );}*/
-
-/*Wrong Answer does this 
-function wrongAnswer() { 
-  $('#answer').html(<h3>Your Answer is Incorrect.</h3>
-    <img src="images/sadamerican.jpeg" alt="Sad USA competor" width="200px" height="300px">
-      <p>Back to School...</p>
-      <button type="button" class='nextButton button'>Next</button>
-    );*/
-/* function results(){
-  $('.final').show();
-
-  const great = [
-    'Proud American!',
-    "some images"
-    'No sleeping in Government Class for you!'
-  ];
-
-  const good = [
-    'Good Job',
-    "maybe an images"
-    'Feel good about your Red White and Blue'
-  ];
-
-  const bad = [
-    'Time to get the History Channel and CSPAN',
-    
-    'Are you a internet bot?'
-  ];
-
-  if (score >= 8) {
-    array = great;
-  } else if (score < 8 && score >= 5) {
-    array = good;
-  } else {
-    array = bad;
-  }*/
-
-}
-
-
-/*restart quiz button
-function restartQuiz() { 
-  $('body').on('click','#restart', (event) => {
-    renderQUiz();
-  });
-}*/
-
-function handleQuiz() {
-  renderQuiz()
-  answerSubmit()
-}
+}    
+  function handleQuiz() {
+    renderQuiz()
+    answerSubmit()
+  }
 $(handleQuiz)

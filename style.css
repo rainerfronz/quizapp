@@ -1,23 +1,21 @@
 /*font-family: 'Manrope', sans-serif;*/
 
-* {
-  box-size: border-box;
-  margin: 0;
-  padding: 20px 20px;
-}
+
+
 
 body {
   font-family: 'Manrope', sans-serif;
   text-transform: uppercase;
   color: black;
   background-color: lightblue;
-  text-align: center;
+  
 }
 
 img {
   width: 50px;
   height: 30px;
 }
+
 
 
 
@@ -28,10 +26,10 @@ section {
 
 .row {
   max-width: 1000px;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 20px 20px 10px 10px;
+
   margin: 0 auto;
-  border: solid
+  
 }
 
 button {
@@ -41,7 +39,6 @@ button {
   text-align: center;
   color: red;
   background: orange;
-  border: 0;
   cursor: pointer;
   margin-bottom: 0;
   border-radius: 5px;
@@ -53,30 +50,28 @@ header h1 {
   display: block;
 }
 
-li {
-  margin-bottom: 20px;
-  border: 1px solid grey;
-  padding: 20px;
-}
 
-.question {
+
+
+question {
   font-family: 'Manrope', sans-serif;;
-  display: block;
+  display: row;
   color: red;
   font-style: bold;
   font-size: 20px;
-  margin-bottom: 10px
+  margin-bottom: 10px;
+  list-style: none;
+  text-align: left;
 }
 
-.startQuiz, .quizBox {
+.startQuiz {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: space-between;
   text-align: center;
   margin: auto;
   padding: 2px;
-  border: 1px, black, solid;
   background-color: white;
 }
 .hidden {
