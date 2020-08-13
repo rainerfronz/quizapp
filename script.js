@@ -91,7 +91,7 @@ function render() {
   }
   STORE.questionNumber += 1;
   $('#questionsCount').text('Question: ' + STORE.questionNumber)
-    // console.log('Question: ' + STORE.questionNumber);
+  // console.log('Question: ' + STORE.questionNumber);
 }
 function answerSubmit() {
   $("body").on(`submit`, `form`, e => {
@@ -105,24 +105,29 @@ function answerSubmit() {
     if (answer == STORE.questions[STORE.questionNumber].correct) {
       console.log('iscorrect');
       STORE.score += 1;
-      $('#notification').html("<h4>correct</h4>");
-    }
+      $('#notification').html(`<h3>Your answer is correct!</h3>
+      <img src="images/fireworks.jpeg" alt="fireworks">
+        <p>USA A OK!</p>
+        <button type="button" class="nextButton button">Next</button>`);
+    
+  }
     else {
-      $('#notification').html(answer);
-      
+      $('#notification').html("answer is not correct");
+      //console.log(STORE.questions[STORE.questionNumber.correct);
+
     }
 
     console.log('score' + STORE.score);
-    $('#score').text('Score: ' + STORE.score);
-    // update score in DOM
+  $('#score').text('Score: ' + STORE.score);
+  // update score in DOM
 
-      
-    
-    
-    // $('#questionsCount').text('Question: ' + STORE.questionNumber)
-    // console.log('Question: ' + STORE.questionNumber);
-    render();
-  })
+
+
+
+  // $('#questionsCount').text('Question: ' + STORE.questionNumber)
+  // console.log('Question: ' + STORE.questionNumber);
+  render();
+})
 }
 
 function handleQuiz() {
