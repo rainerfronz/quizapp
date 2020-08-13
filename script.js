@@ -76,20 +76,19 @@ function render() {
    <form id="#js-title" class="quizBox">
    
     <legend>${question.title}</legend>
-    <label>${question.answers[0]}</label>
     <input type="radio" name="answer" value= "0"/>
-    <label>${question.answers[1]}</label>
+    <label>${question.answers[0]}</label>
     <input type="radio" name="answer" value= "1"/>
-    <label>${question.answers[2]}</label>
+    <label>${question.answers[1]}</label>
     <input type="radio" name="answer" value= "2"/>
-    <label>${question.answers[3]}</label>
+    <label>${question.answers[2]}</label>
     <input type="radio" name="answer" value= "3"/>
+    <label>${question.answers[3]}</label>
     <section class="row">
       <button type = "submit" id="answer">Submit</button>
     </section>
   </form>`)
   }
-
 }
 function answerSubmit() {
   $("body").on(`submit`, `form`, e => {
@@ -97,22 +96,35 @@ function answerSubmit() {
 
     const answer = e.target.answer.value;
     console.log("answer: " + answer);
-    if (answer === STORE.questions[STORE.questions.correct]) {
-      //correctAnser();
-      STORE.score += 1;
+    console.log(STORE.questions[STORE.questionNumber].correct);
 
-      $('#score').text(STORE.score);
-      // update score in DOM
+    // check if answer is correct 
+    if (answer == STORE.questions[STORE.questionNumber].correct) {
+      console.log('iscorrect');
+      STORE.score += 1;
+      $('#notification').html("<h4>correct</h4>");
+    }
+    else {
+      $('#notification').html('incorrect');
+      
     }
 
+    console.log('score' + STORE.score);
+    $('#score').text('Score: ' + STORE.score);
+    // update score in DOM
+
+      
     STORE.questionNumber++;
-    $('#guestionCount').text(STORE.questionNumber)
-    console.log('question: ' + STORE.questionNumber);
+    
+    $('#questionsCount').text('Question: ' + STORE.questionNumber)
+    console.log('Question: ' + STORE.questionNumber);
     render();
   })
-}    
-  function handleQuiz() {
-    renderQuiz()
-    answerSubmit()
-  }
-$(handleQuiz)
+}
+
+function handleQuiz() {
+  renderQuiz()
+  answerSubmit()
+}
+
+$(handleQuiz);
