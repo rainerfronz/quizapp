@@ -6,22 +6,22 @@ const STORE = {
 
   questions: [
     {
-      title: 'How Many States are in US?',
+      title: 'How many States are in USA?',
       answers: ['2', '50', '13', '52'],
       correct: 1
     },
     {
       title: 'What year was the Constitution signed?',
-      answers: ['1984', '1776', '2001', '1819'],
-      correct: 1
+      answers: ['1776', '1984', '2001', '1819'],
+      correct: 0
     },
     {
-      title: 'Which president was famous for Fireside Chats, the New Deal and ending WWII?',
+      title: 'Which president was famous for Fireside Chats and the New Deal?',
       answers: ['Franklin Roosevelt', 'William Taft', 'Harry Truman', 'Jimmy Carter'],
       correct: 0
     },
     {
-      title: 'Which Direction is Detroit, MI from Windsor, ONT Canada?',
+      title: 'Which direction is Detroit, MI from Windsor, ONT Canada?',
       answers: ['South', 'West', 'East', 'North'],
       correct: 3
     },
@@ -51,7 +51,7 @@ const STORE = {
       correct: 1
     },
     {
-      title: 'What determines election day?',
+      title: 'What determines when election day happens in the USA?',
       answers: ['straw poll', 'Voted on by Senate', 'Tuesday next after first Monday in November', 'Primary Vote'],
       correct: 2
     },
@@ -73,7 +73,7 @@ function render() {
   let question = STORE.questions[STORE.questionNumber]
   if (STORE.page == "question") {
     $(`#content`).html(`
-   <form id="#js-title" class="quizBox">
+   <form id="js-title" class="quizBox">
    
     <legend>${question.title}</legend>
     <input type="radio" name="answer" value= "0"/>
@@ -89,6 +89,9 @@ function render() {
     </section>
   </form>`)
   }
+  STORE.questionNumber += 1;
+  $('#questionsCount').text('Question: ' + STORE.questionNumber)
+    // console.log('Question: ' + STORE.questionNumber);
 }
 function answerSubmit() {
   $("body").on(`submit`, `form`, e => {
@@ -105,7 +108,7 @@ function answerSubmit() {
       $('#notification').html("<h4>correct</h4>");
     }
     else {
-      $('#notification').html('incorrect');
+      $('#notification').html(answer);
       
     }
 
@@ -114,10 +117,10 @@ function answerSubmit() {
     // update score in DOM
 
       
-    STORE.questionNumber++;
     
-    $('#questionsCount').text('Question: ' + STORE.questionNumber)
-    console.log('Question: ' + STORE.questionNumber);
+    
+    // $('#questionsCount').text('Question: ' + STORE.questionNumber)
+    // console.log('Question: ' + STORE.questionNumber);
     render();
   })
 }
