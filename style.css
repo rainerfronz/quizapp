@@ -7,27 +7,44 @@ body {
   font-family: 'Manrope', sans-serif;
   text-transform: uppercase;
   color: black;
-  background-color: lightblue;
+  background-color: rgb(32, 132, 240);
   
 }
 
 img {
-  width: 50px;
-  height: 30px;
+  height: 200px;
+  width: 400px;
+ 
 }
+.question-box {
+  display: border-box;
+  background-color: white;
+  border: solid;
+  border-radius: 4px;
+  border-color: black;
+  border-width: 3px;
+  display: hidden;
+  padding: 10px 10px;
+  margin: auto;
+}
+.scoreQuestionBox {
+  display: row;
+  font-family: font-family: 'Manrope', sans-serif;
+  color: red;
+  background-color: white;
 
+}
 
 
 
 section {
   max-width: 600px;
-  margin: 0 auto;
+  margin: auto;
 }
 
 .row {
   max-width: 1000px;
-  padding-left: 20px 20px 10px 10px;
-
+  padding: 20px 20px 10px 10px;
   margin: 0 auto;
   
 }
@@ -38,11 +55,12 @@ button {
   font-size: 15px;
   text-align: center;
   color: red;
-  background: orange;
+  background: white;
   cursor: pointer;
   margin-bottom: 0;
   border-radius: 5px;
   padding: 10px 20px;
+  border-color: darkblue;
 }
 
 header h1 {

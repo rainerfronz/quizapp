@@ -7,8 +7,8 @@ const STORE = {
   questions: [
     {
       title: 'How many States are in USA?',
-      answers: ['2', '50', '13', '52'],
-      correct: 1
+      answers: ['50', '52', '23', '5'],
+      correct: 0
     },
     {
       title: 'What year was the Constitution signed?',
@@ -72,8 +72,11 @@ function render() {
 
   let question = STORE.questions[STORE.questionNumber]
   if (STORE.page == "question") {
+    STORE.questionNumber += 1;
+    $('#questionsCount').text('Question: ' + (STORE.questionNumber))
+
     $(`#content`).html(`
-   <form id="js-title" class="quizBox">
+   <form id="js-title">
    
     <legend>${question.title}</legend>
     <input type="radio" name="answer" value= "0"/>
@@ -89,50 +92,89 @@ function render() {
     </section>
   </form>`)
   }
-  STORE.questionNumber += 1;
-  $('#questionsCount').text('Question: ' + STORE.questionNumber)
-  // console.log('Question: ' + STORE.questionNumber);
+  else if (STORE.page == 'feedback') {
+    if (STORE.answer == STORE.questions[STORE.questionNumber].correct) {
+      STORE.score += 1;
+      $('#content').html(`<h3>Your answer is correct!</h3>
+      <img src="images/fireworks.jpg" alt="fireworks">
+        <p>USA A OK!</p>
+        <button type="button" class="nextButton button">Next</button>`);
+
+    }
+    else {
+      $('#content').html(`<h3>Wrong Answer</h3>
+        <img src="images/sadamerican.jpeg" alt="sad USA athlete">
+          <p>Back To School</p>
+          <button type="button" class="nextButton button">Next</button>`);
+    }
+
+  }
+
+  $('body').on('click', '.button', function (event) {
+    STORE.page = 'question'
+    if (STORE.questionNumber < 9) {
+      STORE.page = 'question'
+    }
+    else {
+      STORE.page = 'score'
+    }
+    render()
+  })
 }
 function answerSubmit() {
   $("body").on(`submit`, `form`, e => {
     e.preventDefault();
 
-    const answer = e.target.answer.value;
-    console.log("answer: " + answer);
-    console.log(STORE.questions[STORE.questionNumber].correct);
+
+    STORE.answer = e.target.answer.value;
 
     // check if answer is correct 
-    if (answer == STORE.questions[STORE.questionNumber].correct) {
-      console.log('iscorrect');
-      STORE.score += 1;
-      $('#notification').html(`<h3>Your answer is correct!</h3>
-      <img src="images/fireworks.jpeg" alt="fireworks">
-        <p>USA A OK!</p>
-        <button type="button" class="nextButton button">Next</button>`);
-    
-  }
-    else {
-      $('#notification').html("answer is not correct");
-      //console.log(STORE.questions[STORE.questionNumber.correct);
+    STORE.score += 1;
+    $('#score').text('Score: ' + STORE.score);
+    // update score in DOM
 
-    }
+    STORE.page = "feedback"
 
-    console.log('score' + STORE.score);
-  $('#score').text('Score: ' + STORE.score);
-  // update score in DOM
+    render();
+  })
 
 
-
-
-  // $('#questionsCount').text('Question: ' + STORE.questionNumber)
-  // console.log('Question: ' + STORE.questionNumber);
-  render();
-})
 }
+// $('#score').show();
+
+// const great = [
+
+//   `images/statueofliberty.jpeg`,
+//   `statue of liberty`,
+//   'No sleeping in Government Class for you!'
+// ];
+
+// const good = [
+//   'Good Job',
+
+//   'Feel good about your Red White and Blue'
+// ];
+
+// const bad = [
+//   'Time to get the History Channel and CSPAN',
+
+//   'Are you a internet bot?'
+// ];
+
+// if (score >= 8) {
+//   array = great;
+// } else if (score < 8 && score >= 5) {
+//   array = good;
+// } else {
+//   array = bad;
+
+
+
 
 function handleQuiz() {
   renderQuiz()
   answerSubmit()
+
 }
 
 $(handleQuiz);
