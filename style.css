@@ -1,97 +1,124 @@
 /*font-family: 'Manrope', sans-serif;*/
+main , body {
+  text-align: center;
+  display: flexbox;
+  background-color: grey;
+  flex-wrap: wrap;
 
-
-
-
-body {
-  font-family: 'Manrope', sans-serif;
+}
+header {
+  font-family: Manrope;
   text-transform: uppercase;
-  color: black;
-  background-color: rgb(32, 132, 240);
+  font-size: 9px;
+  align-content: center;
+  text-align: center;
+
+
+}
+div {
+  display: flexbox;
+  align-content: center;
+  text-align: center;
+
+}
+legend {
+  font-family: 'Manrope', sans-serif;
+  text-align: center;
+  color: blue;
+  font-size: 25px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
   
+}
+.radio{
+  font-family: 'Manrope', sans-serif;
+  font-size: 25px;
+  color: red;
+  justify-content: center;
+}
+
+.counterArea {
+  font-family: Manrope;
+  color: red;
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0 auto;
+
+
 }
 
 img {
-  height: 200px;
-  width: 400px;
- 
-}
-.question-box {
-  display: border-box;
-  background-color: white;
-  border: solid;
-  border-radius: 4px;
-  border-color: black;
-  border-width: 3px;
-  display: hidden;
-  padding: 10px 10px;
-  margin: auto;
-}
-.scoreQuestionBox {
-  display: row;
-  font-family: font-family: 'Manrope', sans-serif;
-  color: red;
-  background-color: white;
-
+  display: flexbox;
+  width: 75%;
+  height: auto;
+  text-align: center;
+  flex-wrap: wrap;
 }
 
-
-
-section {
-  max-width: 600px;
-  margin: auto;
-}
-
-.row {
-  max-width: 1000px;
-  padding: 20px 20px 10px 10px;
-  margin: 0 auto;
-  
-}
-
-button {
+ button {
+  font-family: 'Manrope', sans-serif;
   margin-top: 10px;
   height: auto;
   font-size: 15px;
-  text-align: center;
   color: red;
   background: white;
   cursor: pointer;
   margin-bottom: 0;
   border-radius: 5px;
-  padding: 10px 20px;
+  padding: 13px 13px;
   border-color: darkblue;
 }
-
-header h1 {
+p, h3 {
+  font-family:'Permanent Marker', cursive;
+  color: rgb(66, 66, 243);
   font-size: 30px;
-  display: block;
+
 }
-
-
-
-
-question {
-  font-family: 'Manrope', sans-serif;;
-  display: row;
+.incorrect {
   color: red;
-  font-style: bold;
-  font-size: 20px;
-  margin-bottom: 10px;
-  list-style: none;
-  text-align: left;
 }
+.wrapper {
+  margin: auto auto;
+  max-width: 800px; 
+  padding: 15 15
+
+
+}
+
 
 .startQuiz {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
+  font-family: 'Manrope', sans-serif;
   text-align: center;
-  margin: auto;
-  padding: 2px;
   background-color: white;
 }
+
+.container {
+  width:80%;
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.col {
+  flex: 1;
+}
+/*Util.css*/
+
+
+}
+
+.m-sm {
+  margin: 1%;
+} */
 
 @media all and (min-width: 800px) {
   section {
