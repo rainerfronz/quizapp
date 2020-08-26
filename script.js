@@ -5,46 +5,46 @@ const STORE = {
 
 
   questions: [
-    {
-      title: 'How many States are in USA?',
-      answers: ['50', '52', '23', '5'],
-      correct: 0
-    },
-    {
-      title: 'What year was the Declaration of Independence signed?',
-      answers: ['1776', '1984', '2001', '1819'],
-      correct: 0
-    },
-    {
-      title: 'Which president was famous for Fireside Chats and the New Deal?',
-      answers: ['Franklin Roosevelt', 'William Taft', 'Harry Truman', 'Jimmy Carter'],
-      correct: 0
-    },
-    {
-      title: 'Which direction is Detroit, MI from Windsor, ONT Canada?',
-      answers: ['South', 'West', 'East', 'North'],
-      correct: 3
-    },
-    {
-      title: 'Which leader passed the Civil Rights Act?',
-      answers: ['Martin Luther', 'Martin Luther King Jr.', 'Lyndon B Johnson', 'Donald Trump'],
-      correct: 2
-    },
-    {
-      title: 'What is the capital of Illinois?',
-      answers: ['Chicago', 'Lincoln', 'Springfield', 'Rockford'],
-      correct: 2
-    },
-    {
-      title: 'When was the Bill of Rights signed?',
-      answers: ['1976', '1791', '1689', '2001'],
-      correct: 1
-    },
-    {
-      title: 'Which Amendment expanded voter rights?',
-      answers: ['10th', '24th', '5th', '15th'],
-      correct: 3
-    },
+    // {
+    //   title: 'How many States are in USA?',
+    //   answers: ['50', '52', '23', '5'],
+    //   correct: 0
+    // },
+    // {
+    //   title: 'What year was the Declaration of Independence signed?',
+    //   answers: ['1776', '1984', '2001', '1819'],
+    //   correct: 0
+    // },
+    // {
+    //   title: 'Which president was famous for Fireside Chats and the New Deal?',
+    //   answers: ['Franklin Roosevelt', 'William Taft', 'Harry Truman', 'Jimmy Carter'],
+    //   correct: 0
+    // },
+    // {
+    //   title: 'Which direction is Detroit, MI from Windsor, ONT Canada?',
+    //   answers: ['South', 'West', 'East', 'North'],
+    //   correct: 3
+    // },
+    // {
+    //   title: 'Which leader passed the Civil Rights Act?',
+    //   answers: ['Martin Luther', 'Martin Luther King Jr.', 'Lyndon B Johnson', 'Donald Trump'],
+    //   correct: 2
+    // },
+    // {
+    //   title: 'What is the capital of Illinois?',
+    //   answers: ['Chicago', 'Lincoln', 'Springfield', 'Rockford'],
+    //   correct: 2
+    // },
+    // {
+    //   title: 'When was the Bill of Rights signed?',
+    //   answers: ['1976', '1791', '1689', '2001'],
+    //   correct: 1
+    // },
+    // {
+    //   title: 'Which Amendment expanded voter rights?',
+    //   answers: ['10th', '24th', '5th', '15th'],
+    //   correct: 3
+    // },
     {
       title: 'How many Mountain Ranges are in USA?',
       answers: ['5', '3', '2', '1'],
@@ -77,6 +77,7 @@ function render() {
   $('#questionsCount span').html("Question: " + (STORE.questionNumber + 1) + "/10");
   $(".hide").removeClass('hide');
   if (STORE.page == "question") {
+    $('.hide').removeClass('hide')
     $(`#content`).html(`
    <form id="js-title" class="border-black startQuiz">
    
@@ -91,9 +92,9 @@ function render() {
     <input type="radio" required name="answer" value= "3"/>
     <li><label class="radio row">${question.answers[3]}</label></li>
     </ul>
-    <section class="row">
+    <div class="row">
       <button type = "submit" id="answer">Submit</button>
-    </section>
+    </div>
   </form>`)
   } else if (STORE.page == 'score') {
     
@@ -103,6 +104,9 @@ function render() {
     
     
     `)
+    $(".restart").on('click' , function(event){$(".hide").removeClass('hide');
+    
+    });
   }
   else if (STORE.page = 'feedback') {
     let currentQuestion = STORE.questions[STORE.questionNumber];
@@ -125,9 +129,12 @@ function render() {
   }
 }
 $('body').on('click', '.restart', function (event) {
+  
+  
   STORE.page = "question"
   STORE.score = 0;
   STORE.questionNumber = 0;
+  
   render();
 })
 

@@ -81,7 +81,7 @@ legend, form {
 }
 
 .hide {
-  display: none;
+  visibility:hidden;
 }
 
 img {
