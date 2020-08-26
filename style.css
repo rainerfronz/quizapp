@@ -16,10 +16,10 @@ body {
   
 }
 
-div, section {
+div, section, .container {
   margin: 24px 24px 15px 15px;
   text-align: center;
-  /* display: flexbox; */
+  display: flexbox;
   font-family: 'Manrope', sans-serif;
   text-transform: uppercase;
 }
@@ -75,7 +75,9 @@ legend, form {
 
 .containerscore {
   max-width: 300px;
-  border: none;
+  border-style: dotted;
+  border-color: red;
+  border-width: 13px;
 }
 
 .hide {
@@ -89,6 +91,7 @@ img {
   max-width: 500px;
   height: 100%;
   max-height: 400px;
+  
 
   border: solid;
   border-color: black;
@@ -104,7 +107,7 @@ button {
   cursor: pointer;
   margin-bottom: 0;
   border-radius: 5px;
-  padding: 13px 13px;
+  padding: 9px 9px;
   border-color: darkblue;
 }
 
@@ -117,6 +120,7 @@ p, h3 {
 
 .incorrect {
   color: red;
+  font-size: 18px;
   
 }
 
@@ -124,6 +128,9 @@ p, h3 {
   margin: auto auto;
   max-width: 800px;
   padding: 15 15
+}
+.inline {
+  display: in;
 }
 
 .startQuiz {
@@ -133,7 +140,6 @@ p, h3 {
   font-family: 'Manrope', sans-serif;
   text-transform: uppercase;
   background-color: white;
-  /* width: 520px; */
   border: solid;
   border-color: darkslateblue;
   padding: 13px;

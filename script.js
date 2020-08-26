@@ -96,8 +96,11 @@ function render() {
     </section>
   </form>`)
   } else if (STORE.page == 'score') {
-    $(`#content`).html(`<h3>Here is your final score!</h3> <br>
+    
+    $(`#content`).html(`<h3>Here is your final score!</h3>
+    <br>
     <button type="button" class="restart">Restart</button>
+    
     
     `)
   }
@@ -109,15 +112,15 @@ function render() {
 
       $('#content').html(`<div class="container startQuiz"><h3>Your answer is correct!</h3>
         <img src="images/fireworks.jpg" alt="fireworks">
-          <p>USA A OK!</p></div>
-          <button type="button" class="next">Next</button>`);
+          <p>USA A OK!</p><br>
+          <button type="button" class="next">Next</button></div>`);
 
     }
     else {
-      $('#content').html('<div class="startQuiz container"><h3 class="incorrect">Wrong Answer, the correct answer is ' + currentQuestion.answers[currentQuestion.correct] + `</h3>
-          <img src="images/sadamerican.jpeg" alt="sad USA athlete">
-            <p class="incorrect">Back To School</p></div>
-            <button type="button" class="next">Next</button>`);
+      $('#content').html('<div class="container startQuiz"><img src="images/sadamerican.jpeg" alt="sad USA athlete"><h3 class="incorrect">Wrong Answer, the correct answer is ' + currentQuestion.answers[currentQuestion.correct] + `</h3>
+          
+            <p class="incorrect">Back To School</p><br>
+            <button type="button" class="next">Next</button></div>`);
     }
   }
 }
