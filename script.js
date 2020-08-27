@@ -60,7 +60,7 @@ const STORE = {
   ]
 }
 
-/* template for question function in dom*/
+/* start quiz function, on click loads question page starting the quiz*/
 function renderQuiz() {
   $('#start').on('click', function (event) {
     STORE.page = "question"
@@ -70,7 +70,7 @@ function renderQuiz() {
   });
 }
 function render() {
-  /*after start button this code generates the quiz questions */
+  /*after start button this code generates the quiz questions, unhides score and counter too*/
   let question = STORE.questions[STORE.questionNumber]
   $('#score span').html('Score: ' + STORE.score);
   $(".hide").removeClass('hide');
@@ -80,7 +80,8 @@ function render() {
     $('.hide').removeClass('hide')
     $(`#content`).html(`
    <form id="js-title" class="border-black startQuiz">
-   
+
+
     <legend>${question.title}</legend>
     <ul>
     <li><input type="radio"  required name="answer" value= "0"/>
@@ -96,21 +97,24 @@ function render() {
       <button type = "submit" id="answer">Submit</button>
     </div>
   </form>`)
-  } else if (STORE.page == 'score') {
+  } 
+  else if (STORE.page == 'score') {
     
-    $(`#content`).html(`<h3>Here is your final score!</h3>
+    $(`#content`).html(`<div class="container startQuiz"><h3>Here is your final score!</h3>
+    
     <br>
-    <button type="button" class="restart">Restart</button>
+    <button type="button" class="restart">Restart</button></div>
     
     
     `)
-    $(".restart").on('click' , function(event){$(".hide").removeClass('hide');
+    $(".restart").on('click' , function(event){
+      $("#questionsCount").removeClass('.hide');
     
     });
   }
   else if (STORE.page = 'feedback') {
     let currentQuestion = STORE.questions[STORE.questionNumber];
-
+  
     if (STORE.answer == currentQuestion.correct) {
       STORE.score += 1;
 
@@ -129,6 +133,7 @@ function render() {
   }
 }
 $('body').on('click', '.restart', function (event) {
+  
   
   
   STORE.page = "question"
