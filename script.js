@@ -2,8 +2,6 @@ const STORE = {
   questionNumber: 0,
   score: 0,
 
-
-
   questions: [
     {
       title: 'How many States are in USA?',
@@ -54,8 +52,6 @@ const STORE = {
       title: 'What determines when election day happens in the USA?',
       answers: ['straw poll', 'Voted on by Senate', 'Tuesday next after first Monday in November', 'Primary Vote'],
       correct: 2
-
-
     },
   ]
 }
@@ -64,7 +60,6 @@ const STORE = {
 function renderQuiz() {
   $('#start').on('click', function (event) {
     STORE.page = "question"
-
 
     render();
   });
@@ -78,29 +73,29 @@ function render() {
   $(".hide").removeClass('hide');
   if (STORE.page == "question") {
     $(`#content`).html(`
+
    <form id="js-title" class="border-black startQuiz">
 
-
     <legend>${question.title}</legend>
-    <ul>
-    <li><input type="radio"  required name="answer" value= "0"/>
-    <label class="radio row">${question.answers[0]}</label></li>
-    <li><input type="radio" required  name="answer" value= "1"/>
-    <label class="radio row">${question.answers[1]}</label></li>
-    <li><input type="radio"  required name="answer" value= "2"/>
-    <li><label class="radio row">${question.answers[2]}</label></li>
-    <input type="radio" required name="answer" value= "3"/>
-    <li><label class="radio row">${question.answers[3]}</label></li>
-    </ul>
+    
+      <input type="radio"  required name="answer" value= "0"/>
+      <label class="radio row">${question.answers[0]}</label>
+      <input type="radio" required  name="answer" value= "1"/>
+      <label class="radio row">${question.answers[1]}</label>
+      <input type="radio"  required name="answer" value= "2"/>
+      <label class="radio row">${question.answers[2]}</label>
+      <input type="radio" required name="answer" value= "3"/>
+      <label class="radio row">${question.answers[3]}</label>  
     <div class="row">
       <button type = "submit" id="answer">Submit</button>
     </div>
   </form>`)
   }
+
   else if (STORE.page == 'score') {
+
     $('#questionsCount').addClass('hide');
     $('#score').addClass('hide');
-
 
     let totalScore = STORE.score;
     if (totalScore >= 7) {
@@ -111,37 +106,25 @@ function render() {
     }
     else {
       var str = "Time to go back to school."
-
-
-
-
     }
-
-
-
 
     $(`#content`).html(`<div class="container startQuiz"><h3>Here is your final score!<br>   ${STORE.score} </h3><br><div><p>${str}</p></div>
     
     <br>
-    <button type="button" class="restart">Restart</button></div>
-    `)
-
-
-
-
+    <button type="button" class="restart">Restart</button></div>`)
   }
+
   else if (STORE.page = 'feedback') {
     let currentQuestion = STORE.questions[STORE.questionNumber];
 
     if (STORE.answer == currentQuestion.correct) {
       STORE.score += 1;
-
       $('#content').html(`<div class="container startQuiz"><h3>Your answer is correct!</h3>
         <img src="images/fireworks.jpg" alt="fireworks">
           <p>USA A OK!</p><br>
           <button type="button" class="next">Next</button></div>`);
-
     }
+
     else {
       $('#content').html('<div class="container startQuiz"><img src="images/sadamerican.jpeg" alt="sad USA athlete"><h3 class="incorrect">Wrong Answer. The correct answer is ' + currentQuestion.answers[currentQuestion.correct] + `</h3>
           
@@ -156,15 +139,12 @@ $('body').on('click', '.restart', function (event) {
   STORE.score = 0;
   STORE.questionNumber = 0;
 
-
   render()
 })
-
 
 $('body').on('click', '.next', function (event) {
 
   STORE.page = 'question'
-
   STORE.questionNumber += 1;
   if (STORE.questionNumber < STORE.questions.length) {
     STORE.page = 'question'
@@ -174,11 +154,7 @@ $('body').on('click', '.next', function (event) {
 
 
     STORE.page = 'score'
-
-
-
   }
-
   render();
 })
 
@@ -188,13 +164,10 @@ function answerSubmit() {
     //check for empty and notify user
     STORE.answer = e.target.answer.value;
 
-
     STORE.page = "feedback"
 
     render();
   })
-
-
 }
 
 function handleQuiz() {
