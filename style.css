@@ -15,6 +15,9 @@ body {
   background-size: cover;
   
 }
+h2 {
+  font-color: black;
+}
 
 div, section, .container {
   margin: 24px 24px 15px 15px;
@@ -78,6 +81,8 @@ legend, form {
   border-style: dotted;
   border-color: red;
   border-width: 13px;
+  padding-top: 15px;
+  margin: 0 auto;
 }
 
 .hide {
@@ -120,7 +125,7 @@ p, h3 {
 
 .incorrect {
   color: red;
-  font-size: 18px;
+  font-size: 19px;
   
 }
 
@@ -129,9 +134,7 @@ p, h3 {
   max-width: 800px;
   padding: 15 15
 }
-.inline {
-  display: in;
-}
+
 
 .startQuiz {
   display: flexbox;

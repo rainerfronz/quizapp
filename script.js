@@ -5,46 +5,46 @@ const STORE = {
 
 
   questions: [
-    // {
-    //   title: 'How many States are in USA?',
-    //   answers: ['50', '52', '23', '5'],
-    //   correct: 0
-    // },
-    // {
-    //   title: 'What year was the Declaration of Independence signed?',
-    //   answers: ['1776', '1984', '2001', '1819'],
-    //   correct: 0
-    // },
-    // {
-    //   title: 'Which president was famous for Fireside Chats and the New Deal?',
-    //   answers: ['Franklin Roosevelt', 'William Taft', 'Harry Truman', 'Jimmy Carter'],
-    //   correct: 0
-    // },
-    // {
-    //   title: 'Which direction is Detroit, MI from Windsor, ONT Canada?',
-    //   answers: ['South', 'West', 'East', 'North'],
-    //   correct: 3
-    // },
-    // {
-    //   title: 'Which leader passed the Civil Rights Act?',
-    //   answers: ['Martin Luther', 'Martin Luther King Jr.', 'Lyndon B Johnson', 'Donald Trump'],
-    //   correct: 2
-    // },
-    // {
-    //   title: 'What is the capital of Illinois?',
-    //   answers: ['Chicago', 'Lincoln', 'Springfield', 'Rockford'],
-    //   correct: 2
-    // },
-    // {
-    //   title: 'When was the Bill of Rights signed?',
-    //   answers: ['1976', '1791', '1689', '2001'],
-    //   correct: 1
-    // },
-    // {
-    //   title: 'Which Amendment expanded voter rights?',
-    //   answers: ['10th', '24th', '5th', '15th'],
-    //   correct: 3
-    // },
+    {
+      title: 'How many States are in USA?',
+      answers: ['50', '52', '23', '5'],
+      correct: 0
+    },
+    {
+      title: 'What year was the Declaration of Independence signed?',
+      answers: ['1776', '1984', '2001', '1819'],
+      correct: 0
+    },
+    {
+      title: 'Which president was famous for Fireside Chats and the New Deal?',
+      answers: ['Franklin Roosevelt', 'William Taft', 'Harry Truman', 'Jimmy Carter'],
+      correct: 0
+    },
+    {
+      title: 'Which direction is Detroit, MI from Windsor, ONT Canada?',
+      answers: ['South', 'West', 'East', 'North'],
+      correct: 3
+    },
+    {
+      title: 'Which leader passed the Civil Rights Act?',
+      answers: ['Martin Luther', 'Martin Luther King Jr.', 'Lyndon B Johnson', 'Donald Trump'],
+      correct: 2
+    },
+    {
+      title: 'What is the capital of Illinois?',
+      answers: ['Chicago', 'Lincoln', 'Springfield', 'Rockford'],
+      correct: 2
+    },
+    {
+      title: 'When was the Bill of Rights signed?',
+      answers: ['1976', '1791', '1689', '2001'],
+      correct: 1
+    },
+    {
+      title: 'Which Amendment expanded voter rights?',
+      answers: ['10th', '24th', '5th', '15th'],
+      correct: 3
+    },
     {
       title: 'How many Mountain Ranges are in USA?',
       answers: ['5', '3', '2', '1'],
@@ -72,12 +72,11 @@ function renderQuiz() {
 function render() {
   /*after start button this code generates the quiz questions, unhides score and counter too*/
   let question = STORE.questions[STORE.questionNumber]
-  $('#score span').html('Score: ' + STORE.score);
+  $('#score span').text('Score: ' + STORE.score);
   $(".hide").removeClass('hide');
-  $('#questionsCount span').html("Question: " + (STORE.questionNumber + 1) + "/10");
+  $('#questionsCount span').text("Question: " + (STORE.questionNumber + 1) + "/10");
   $(".hide").removeClass('hide');
   if (STORE.page == "question") {
-    $('.hide').removeClass('hide')
     $(`#content`).html(`
    <form id="js-title" class="border-black startQuiz">
 
@@ -97,24 +96,43 @@ function render() {
       <button type = "submit" id="answer">Submit</button>
     </div>
   </form>`)
-  } 
+  }
   else if (STORE.page == 'score') {
-    
-    $(`#content`).html(`<div class="container startQuiz"><h3>Here is your final score!</h3>
+    $('#questionsCount').addClass('hide');
+    $('#score').addClass('hide');
+
+
+    let totalScore = STORE.score;
+    if (totalScore >= 7) {
+      var str = "GREAT JOB";
+    }
+    else if (totalScore >= 5) {
+      var str = "Not Bad, Maybe watch a little History Channel.";
+    }
+    else {
+      var str = "Time to go back to school."
+
+
+
+
+    }
+
+
+
+
+    $(`#content`).html(`<div class="container startQuiz"><h3>Here is your final score!<br>   ${STORE.score} </h3><br><div><p>${str}</p></div>
     
     <br>
     <button type="button" class="restart">Restart</button></div>
-    
-    
     `)
-    $(".restart").on('click' , function(event){
-      $("#questionsCount").removeClass('.hide');
-    
-    });
+
+
+
+
   }
   else if (STORE.page = 'feedback') {
     let currentQuestion = STORE.questions[STORE.questionNumber];
-  
+
     if (STORE.answer == currentQuestion.correct) {
       STORE.score += 1;
 
@@ -125,7 +143,7 @@ function render() {
 
     }
     else {
-      $('#content').html('<div class="container startQuiz"><img src="images/sadamerican.jpeg" alt="sad USA athlete"><h3 class="incorrect">Wrong Answer, the correct answer is ' + currentQuestion.answers[currentQuestion.correct] + `</h3>
+      $('#content').html('<div class="container startQuiz"><img src="images/sadamerican.jpeg" alt="sad USA athlete"><h3 class="incorrect">Wrong Answer. The correct answer is ' + currentQuestion.answers[currentQuestion.correct] + `</h3>
           
             <p class="incorrect">Back To School</p><br>
             <button type="button" class="next">Next</button></div>`);
@@ -133,28 +151,31 @@ function render() {
   }
 }
 $('body').on('click', '.restart', function (event) {
-  
-  
-  
+
   STORE.page = "question"
   STORE.score = 0;
   STORE.questionNumber = 0;
-  
-  render();
+
+
+  render()
 })
 
 
 $('body').on('click', '.next', function (event) {
+
   STORE.page = 'question'
-  
+
   STORE.questionNumber += 1;
   if (STORE.questionNumber < STORE.questions.length) {
     STORE.page = 'question'
   }
   else {
-    
-    $('#questionsCount').hide();
+
+
+
     STORE.page = 'score'
+
+
 
   }
 
@@ -169,7 +190,7 @@ function answerSubmit() {
 
 
     STORE.page = "feedback"
-    
+
     render();
   })
 
